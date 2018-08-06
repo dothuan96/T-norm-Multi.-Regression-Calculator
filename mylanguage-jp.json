@@ -1,0 +1,56 @@
+{
+  "header": "Nit. Kumamoto College jp",
+  "title": {
+    "topic": "Multiple Regression jp",
+    "quote": "If Math is your nightmare, this tool is for you! jp",
+    "button": "Start now jp"
+  },
+  "input": {
+    "name": "M.R Calculator jp",
+    "guide": "Choose input method: jp",
+    "manual": "Manual jp",
+    "import": "Import jp"
+  },
+  "tnorm": {
+    "none": "None jp",
+    "Algebraic": "Algebraic product jp",
+    "Choquet": "Algebraic corresponds to Choquet integral jp",
+    "Drastic": "Drastic product jp",
+    "Dubois": "Dubois and Prade's t-norm jp",
+    "Schweizer": "Schweizer and Sklar's t-norm jp",
+    "Dombi": "Dombi's t-norm jp",
+    "Miyamoto": "Miyamoto's Minkowski type t-norm for R-bags jp",
+    "Sugeno": "Sugeno type t-norm for R-bags  jp",
+    "noComb": "No. combination  jp"
+  },
+  "table": {
+    "tnormTil": "T-norm table jp",
+    "anovaTil": "ANOVA table jp",
+    "explainTil": "Explain jp"
+  },
+  "manualModal": {
+    "title": "Data table setting jp",
+    "noX": "Number of X: jp",
+    "guide1": "Number of independent variables (column) jp",
+    "noDataX": "Number data points of X: jp",
+    "guide2": "Number data points of X and Y variables (row) jp",
+    "button": "Submit jp",
+    "error": "NOTE: ERROR....... jp"
+  },
+  "importModal": {
+    "title": "Data table import jp",
+    "chooseFile": "Choose file from computer: jp",
+    "guide": "Automatic read first sheet (ex: Sheet1) jp",
+    "placeholder": "No flie choosen... jp",
+    "button": "Submit jp",
+    "error": "NOTE: ERROR....... jp"
+  },
+  "errTnorm": {
+    "part1": "No. new independent variables must to be jp",
+    "part2": "no. data points - 1 jp",
+    "rows": "No. data points (rows): jp",
+    "newCols": "No. new independent variables: jp",
+    "subComb": "(combination) jp",
+    "subCols": "(column) jp"
+  }
+}

@@ -1,0 +1,97 @@
+/*------------------------------------------------------------------
+  	[Modal]
+------------------------------------------------------------------*/
+.modal #error,
+.modal #errorImport {
+  margin: 0;
+  margin-top: 1em;
+  font-size: 1em;
+  color: red;
+}
+
+#manualModal .inputXY,
+#importModal .importLocalFile {
+  position: relative;
+  padding: 2em 1.5em;
+  text-align: center;
+}
+
+#manualModal h2,
+#importModal h2 {
+  display: inline-block;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 300;
+}
+
+#manualModal i {
+  margin-left: 0.2em;
+  font-size: 2.75em;
+  color: #5ebfd5;
+}
+
+#importModal i {
+  margin-right: 0.2em;
+  font-size: 2.5em;
+  color: #5ebfd5;
+}
+
+#manualModal .form-group
+#importModal .form-group {
+  position: relative;
+  width: 100%;
+  text-align: left !important;
+}
+
+#manualModal label,
+#importModal label {
+  margin: 0;
+  color: #5ebfd5;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+#manualModal input,
+#importModal input {
+  border: none;
+  border-bottom: 2px solid #5ebfd5;
+}
+
+#manualModal p,
+#importModal p {
+  margin: 0;
+  color: #95A5A6;
+  font-size: 0.8em;
+  font-weight: 300;
+  font-style: italic;
+}
+
+#manualModal .btn,
+#importModal .btn {
+  margin-top: 1.5em;
+  padding: 0.6em 2.25em;
+  border: 2px solid #5ebfd5;
+  border-radius: 50px;
+  font-size: 1.25em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #5ebfd5;
+  background-color: transparent;
+  transition: all 800ms ease;
+}
+
+#manualModal .btn:hover,
+#importModal .btn:hover {
+  color: #fff;
+  background-color: #5ebfd5;
+}
+
+#importModal .mb-3 {
+  margin-top: 1.25em;
+}
+
+#importModal .custom-file-label {
+  color: #95A5A6;
+  font-weight: 300;
+  font-size: 1em;
+}

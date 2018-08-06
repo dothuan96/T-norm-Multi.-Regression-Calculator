@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="array"></div>
+    <div id='demo'></div>
+
+    <script type="text/javascript">
+      var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      var r = 4;
+      common(array, r);
+
+      function common(array, r) {
+
+        var combArray = [];
+        var result = [];
+
+        //var num = 0;
+        //var comb = 3;      //array length
+
+        for (var ez = 2; ez <= r; ez++) {
+          console.log(ez);
+          if (ez <= 3 ) {
+            var tempComb = TnormUnder3(array, ez);
+          }  else {
+            var tempComb = TnormAbove3(array, ez);
+          }
+          console.log(tempComb);
+          combArray = combArray.concat(tempComb);
+        }  console.log(combArray);
+      }
+
+      function TnormUnder3 (array, r) {
+        var combArray = [];
+        for (var i = 0; i < array.length-r+1; i++) {
+          var tempArray = [];
+
+          var a = array[i];
+          for (var x = 0; x < array.length; x++) {
+            if (x != i && x > i)
+              tempArray.push(array[x]);
+          } //console.log(tempArray);
+
+
+          var stop = true;
+          for (var y = 0; stop; y++) {
+            var newArray = [];
+            var abc = true;
+            for (var z = y; z < y+r-1; z++) {
+              var countArr = z;
+              if (tempArray[countArr] === undefined) {
+                //countArr = 0;
+                stop = false;
+                abc = false;
+                newArray = [];
+              } else {
+                newArray.push(tempArray[countArr]);
+              }
+
+            }
+            if (newArray.length > 1 || abc) {
+              newArray.unshift(a);
+              combArray.push(newArray);
+            }
+
+            //for the case 2 input
+            if (newArray.length == tempArray.length+1)
+              stop = false;
+            //for the case more than 3 input, then it'll have exception case
+            if (tempArray.length >= 3 && stop == false && r > 2) {
+              var stopNew = true;
+              for (var w = 0; stopNew; w++) {
+                var newArray = [];
+                var newTempArr = [];
+                for (var t = 0; t < tempArray.length; t++) {
+                  if (t >= w)
+                    newTempArr.push(tempArray[t]);
+                }  //console.log(newTempArr);
+
+                if (newTempArr.length >= r) {
+                  for (var q = 1; q <= newTempArr.length - 2; q++) {
+                    newArray = [];
+                    for (var p = 0; p < newTempArr.length; p++) {
+                      if (newArray.length < r-1) {
+                        newArray.push(newTempArr[p]);
+                        p += q;
+                      }
+                    }  //console.log(newArray);
+                    newArray.unshift(a);
+                    combArray.push(newArray);
+                  }
+                }  else {
+                  stopNew = false;
+                  //console.log("STOP!!!");
+                }
+
+              }
+            }
+
+          }
+
+        } //console.log(combArray);
+        return combArray;
+      }
+
+      function TnormAbove3(array, r) {
+        var combArray = [];
+        var tempArray = [];
+        var num = combArray.length;
+        for (var j = 0; j < array.length; j++) {
+          tempArray.push(array[j]);
+        }
+
+        for (var i = 0; i < array.length-r+1; i++) {
+          //console.log(tempArray);
+          for (var c = 1; r-2-c > 0; c++) {
+            var conditional = true;
+
+            for (var a = 0; conditional; a++) {
+              var newTempArr = [];
+              for (var l = 0; l < tempArray.length; l++) {
+                newTempArr.push(tempArray[l])
+              }  //console.log(newTempArr);
+
+              //if (newTempArr.length > r) {
+              //console.log(c);
+              newTempArr.splice(r-2-c, a);
+              if (c > 1) {
+                newTempArr.splice(r-2-c, c-1);
+              }
+              //console.log(newTempArr);
+
+              if (newTempArr.length >= r) {
+                for (var h = 0; newTempArr.length >= r; h++) {
+                  var newArray = [];
+                  var step = 0;
+                  for (var k = 0; k < r-1; k++) {
+                    newArray.push(newTempArr[k]);
+                    step++;
+                  }
+
+                  for (var n = 0; step != 0; n++) {
+                    if (step < newTempArr.length) {
+                      if (newArray.length = r) {
+                        newArray.pop();
+                      }
+
+                      while (newArray.length < r) {
+                        newArray.push(newTempArr[step]);
+                        step++;
+                      }  //console.log(newArray);
+                      combArray.push( [] );
+                      for (var g = 0; g < newArray.length; g++) {
+                        combArray[num].push(newArray[g]);
+                      }  num++;
+
+                    }  else {
+                      step = 0;
+                      newTempArr.splice(r-2, 1);
+                      //console.log("Final combination...");
+                    }
+                  }
+                }
+              }  else {
+                conditional = false;
+                //console.log("conditional false...");
+              }
+            }
+          }
+          tempArray.splice(0,1);
+        } //console.log(combArray);
+        return combArray;
+      }
+
+
+      document.getElementById('array').innerHTML = array;
+      //document.getElementById('demo').innerHTML = combArray;
+    </script>
+  </body>
+</html>

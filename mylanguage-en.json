@@ -1,0 +1,56 @@
+{
+  "header": "Nit. Kumamoto College",
+  "title": {
+    "topic": "Multiple Regression",
+    "quote": "If Math is your nightmare, this tool is for you!",
+    "button": "Start now"
+  },
+  "input": {
+    "name": "M.R Calculator",
+    "guide": "Choose input method:",
+    "manual": "Manual",
+    "import": "Import"
+  },
+  "tnorm": {
+    "none": "None",
+    "Algebraic": "Algebraic product",
+    "Choquet": "Algebraic corresponds to Choquet integral",
+    "Drastic": "Drastic product",
+    "Dubois": "Dubois and Prade's t-norm",
+    "Schweizer": "Schweizer and Sklar's t-norm",
+    "Dombi": "Dombi's t-norm",
+    "Miyamoto": "Miyamoto's Minkowski type t-norm for R-bags",
+    "Sugeno": "Sugeno type t-norm for R-bags ",
+    "noComb": "No. combination "
+  },
+  "table": {
+    "tnormTil": "T-norm table",
+    "anovaTil": "ANOVA table",
+    "explainTil": "Explain"
+  },
+  "manualModal": {
+    "title": "Data table setting",
+    "noX": "Number of X:",
+    "guide1": "Number of independent variables (column)",
+    "noDataX": "Number data points of X:",
+    "guide2": "Number data points of X and Y variables (row)",
+    "button": "Submit",
+    "error": "NOTE: ERROR......."
+  },
+  "importModal": {
+    "title": "Data table import",
+    "chooseFile": "Choose file from computer:",
+    "guide": "Automatic read first sheet (ex: Sheet1)",
+    "placeholder": "No flie choosen...",
+    "button": "Submit",
+    "error": "NOTE: ERROR......."
+  },
+  "errTnorm": {
+    "part1": "No. new independent variables must to be",
+    "part2": "no. data points - 1",
+    "rows": "No. data points (rows):",
+    "newCols": "No. new independent variables:",
+    "subComb": "(combination)",
+    "subCols": "(column)" 
+  }
+}

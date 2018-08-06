@@ -1,0 +1,377 @@
+/*------------------------------------------------------------------
+  	[Index]
+------------------------------------------------------------------*/
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.intro {
+    /* The image used*/
+    background-image: url("../images/intro.png");
+    background-color: #5C97BF;
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1000;
+}
+
+.intro .describe {
+  position: absolute;
+  width: 100%;
+  top: 36.5%;
+  z-index: 100;
+}
+
+.intro h2 {
+  padding-bottom: 0.4em;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 4em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  text-shadow: 0 2px 2px rgba(0,0,0,0.16);
+}
+
+.intro .btn {
+  padding: 0.75em 3em;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  font-size: 1.25em;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  background-color: transparent;
+  transition: all 800ms ease;
+}
+
+.intro .btn:hover {
+  color: #5ebfd5;
+  background-color: #fff;
+  border: 2px solid #5ebfd5;
+}
+
+.intro p {
+  margin-bottom: 1em;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.25em;
+  font-style: italic;
+}
+
+main .contain {
+  position: relative;
+  margin-top: 5em;
+  margin-bottom: 3em;
+  text-align: center;
+}
+
+.contain .title-calculator {
+  color: #515769;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2.5em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.contain .guide-step {
+  margin-top: 1.5em;
+  color: #95A5A6;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.25em;
+  font-weight: 300;
+}
+
+.contain .options {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin-bottom: 2.5em;
+}
+
+.contain .options .btn {
+  position: relative;
+  padding: 1em 2.25em;
+  border-radius: 5px;
+  color: #5ebfd5;
+  border: 1px solid #5ebfd5;
+  background-color: transparent;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1.25em;
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+
+.contain .options .btn:hover {
+  background-color: #5ebfd5;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 700;
+  border: 1px solid #fff;
+}
+
+.contain .options .tnorm-input-area {
+  width: 45%;
+  margin: auto;
+  position: relative;
+}
+
+.contain .options .select {
+  display: flex;
+  position: relative;
+  margin: auto;
+  margin-top: 1.25em;
+}
+
+.contain .options .adj-select {
+  width: 85%;
+  margin: auto;
+}
+
+.contain .options .form-control {
+  position: relative;
+  height: fit-content !important;
+  border-radius: 0em;
+  font-family: 'Open Sans', sans-serif;
+  color: #515769;
+  font-weight: 300;
+  font-size: 1em;
+  background-color: #fff;
+}
+
+.contain .options .form-control option {
+  font-family: 'Open Sans', sans-serif;
+  color: #515769;
+  font-weight: 300;
+  font-size: 1em;
+}
+
+.contain .options select + .icon-select,
+.icon-select {
+  position: absolute;
+  padding-top: 2px;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50px;
+  pointer-events: none;
+  text-align: center !important;
+  background-color: #5ebfd5;
+}
+
+.contain .options .select span {
+  color: #F64747;
+}
+
+.contain .options i {
+  font-size: 1.4em;
+  color: #fff;
+  line-height: 1.5em;
+}
+
+#tnorm-equation {
+  margin-top: 0.5em;
+  font-size: 130%;
+  font-family: "Times New Roman", Times, serif;
+}
+
+#tnorm-equation span.MJXc-display {
+  display: inline-block;
+  margin: 1em 0.5em;
+  margin-bottom: 0;
+}
+
+.btn-bottom {
+  position: fixed;
+  bottom: 0.9em;
+  right: 1.25em;
+  z-index: 99;
+}
+
+.btn-bottom .btn-cal {
+  opacity: 0;
+  height: 0;
+  padding: 1.25em 1.25em;
+  border-radius: 50%;
+  background-color: #5ebfd5;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.16);
+  transition: all 500ms ease;
+}
+
+.btn-bottom i {
+  display: block;
+  font-size: 1.35em;
+  cursor: pointer;
+  color: #fff;
+  z-index: 100;
+}
+
+.btn-bottom .btn-cal:hover {
+  background-color: #5dd6f2;
+}
+
+.show-btn {
+  opacity: 1 !important;
+  height: 100% !important;
+}
+
+.contain .options .input-comb {
+  margin: auto;
+  margin-top: 1.25em;
+  text-align: center;
+  width: 90%;
+}
+
+.contain .options .input-comb span, .grid {
+  display: inline-block;
+  padding: 0;
+  margin: auto;
+}
+
+.contain .options .input-comb label {
+  color: #5d6a6b;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.resultTables {
+  position: relative;
+  margin-top: 3.5em;
+  opacity: 0;
+  height: 0;
+  transition: all 300ms ease-in-out;
+  transform-origin: 0% 0%;
+  transform: rotateX(-90deg);
+}
+
+.show-result-table {
+  opacity: 1;
+  height: 100%;
+  transform: rotateX(0deg);
+}
+
+.resultTables .show-tnorm {
+  padding-top: 2.5em;
+  border-top: 2px solid #5ebfd5;
+  transition: all 300ms ease-in-out;
+}
+
+.show-tnorm {
+  margin-bottom: 3em;
+}
+
+#inputErr {
+  margin-top: 1em;
+  font-size: 1.25em;
+  font-weight: 300;
+  font-style: italic;
+  color: red;
+}
+
+#inputErr span {
+  display: inline-block;
+}
+
+.resultTables .tnorm-title {
+  color: #5ebfd5;
+  font-size: 1.5em;
+  text-align: left;
+  font-weight: 700;
+  display: block;
+}
+
+.resultTables .anova-title {
+  padding-bottom: 6px;
+  margin-bottom: 0;
+  margin-right: 0.75em;
+  color: #5d6a6b;
+  display: inline-block;
+  font-size: 1.25em;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.resultTables .anova-title:hover {
+  color: #5ebfd5;
+}
+
+.Tactive {
+  font-size: 1.5em !important;
+  font-weight: 700;
+  color: #5ebfd5 !important;
+  border-bottom: 4px solid #5ebfd5;
+}
+
+.resultTables .anova-wrap {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  text-align: left;
+}
+
+.anova-wrap .d-flex {
+  width: 100%;
+  border-bottom: 2px solid #5ebfd5;
+}
+
+.tnorm-wrap i,
+.anova-wrap i {
+  font-size: 1.25em;
+  display: inline-flex;
+  margin-right: 0.75em;
+  color: #5ebfd5;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.tnorm-wrap i:hover,
+.anova-wrap i:hover {
+  color: #5dd6f2;
+  font-size: 1.5em;
+}
+
+.anova-wrap .result-panel,
+.explain-panel {
+  position: absolute;
+  width: 100%;
+  padding-top: 2.5em;
+  transition: all 800ms ease-in-out;
+}
+
+.anova-wrap .explain-panel {
+  background-color: red;
+  left: 100%;
+}
+
+/* Media Queries above 992px */
+@media (max-width: 992px) {
+  .contain .options .tnorm-input-area {
+    width: 55%;
+  }
+}
+
+/* Media Queries above 776px */
+@media (max-width: 776px) {
+  .contain .options .tnorm-input-area {
+    width: 65%;
+  }
+}
+
+/* Media Queries above 776px */
+@media (max-width: 642px) {
+  .contain .options .tnorm-input-area {
+    width: 85%;
+  }
+}

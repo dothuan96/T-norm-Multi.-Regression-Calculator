@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Kumamoto Multiple Regression Analysis</title>
+    <link rel="icon" href="images/infinity.png" type="image/gif" sizes="16x16">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Global mandatory file-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:100,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" crossorigin="anonymous">
+
+    <!--Extend CSS-->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/table.css">
+  </head>
+  <body>
+    <!--========== HEADER ==========-->
+    <header class="header fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" role="navigation">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="menu-container">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="toggle-icon"></span>
+                </button>
+
+                <!-- Logo -->
+                <div class="logo">
+                    <a class="logo-wrap" href="#body">
+                      <div class="logo-text logo-img-main">
+                        <img class="logo-img" src="images/logo.png" alt="Asentus Logo">
+                        <p data-localize="header">Nit. Kumamoto College</p>
+                      </div>
+                      <div class="logo-text logo-img-active">
+                        <img class="logo-img" src="images/logo.png" alt="Asentus Logo">
+                        <p data-localize="header">Nit. Kumamoto College</p>
+                      </div>
+                    </a>
+                </div>
+                <!-- End Logo -->
+            </div>
+
+            <!--Collapse navbar-->
+            <div class="collapse navbar-collapse nav-collapse" id="myNavbar">
+              <div class="menu-container">
+                <ul class="nav navbar-nav navbar-nav-right">
+                  <li id="lang-en" class="nav-item active">
+                    <a class="nav-item-child nav-item-hover">English</a>
+                  </li>
+                  <li id="lang-jp" class="nav-item">
+                    <a class="nav-item-child nav-item-hover">Japanese</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+
+    <!--========== INTRO PAGE ==========-->
+    <div class="intro">
+      <div class="container">
+        <div class="col-sm-7 describe">
+          <h2 data-localize="title.topic">Multiple Regression</h2>
+          <p data-localize="title.quote">If Math is your nightmare, this tool is for you!</p>
+          <button data-localize="title.button" type="button" class="btn">Start now</button>
+        </div>
+      </div>
+    </div>
+    <!--========== END INTRO ==========-->
+
+    <!--========== BODY PAGE ==========-->
+    <main class="container">
+      <div class="contain">
+        <h1 data-localize="input.name" class="title-calculator">M.R Calculator</h1>
+        <p data-localize="input.guide" class="guide-step">Choose input method:</p>
+        <div class="options">
+          <div class="col-sm-12">
+            <div class="tnorm-input-area">
+              <button data-localize="input.manual" type="button" class="btn" data-toggle="modal" data-target="#manualModal">Manual</button>
+              <button data-localize="input.import" type="button" class="btn" data-toggle="modal" data-target="#importModal">Import</button>
+              <div class="adj-select">
+                <div class="select">
+                  <select id="tnorm" class="form-control" onchange="chooseTnorm()">
+                    <option value="0"><span data-localize="tnorm.none">None</span></option>
+                    <option value="1"><span data-localize="tnorm.Algebraic">Algebraic product </span><span>&#x2139;</span></option>
+                    <option value="2"><span data-localize="tnorm.Choquet">Algebraic corresponds to Choquet integral </span><span>&#x2139;</span></option>
+                    <option value="3"><span data-localize="tnorm.Drastic">Drastic product</span></option>
+                    <option value="4"><span data-localize="tnorm.Dubois">Dubois and Prade's t-norm</span></option>
+                    <option value="5"><span data-localize="tnorm.Schweizer">Schweizer and Sklar's t-norm</span></option>
+                    <option value="6"><span data-localize="tnorm.Dombi">Dombi's t-norm</span></option>
+                    <option value="7"><span data-localize="tnorm.Miyamoto">Miyamoto's Minkowski type t-norm for R-bags</span></option>
+                    <option value="8"><span data-localize="tnorm.Sugeno">Sugeno type t-norm for R-bags </span><span>&#x2139;</span></option>
+                  </select>
+                  <div class="icon-select">
+                    <i class="fas fa-drafting-compass" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-comb">
+                <div class="col-sm-6 grid">
+                  <label for="num-comb "><span data-localize="tnorm.noComb">No. combination </span> $$(\ge 2)$$</label>
+                </div>
+                <div class="col-sm-5 grid">
+                  <input class="form-control" id="num-comb" type="number" value="2" name="quantity" min="2">
+                </div>
+              </div>
+            </div>
+            <div id="tnorm-equation"></div>
+          </div>
+        </div>
+
+        <div id="tbData"></div>
+        <h4 id="inputErr"></h4>
+
+        <div class="resultTables">
+          <div class="tnorm-wrap">
+            <div class="d-flex justify-content-between">
+              <h2 data-localize="table.tnormTil" class="tnorm-title">T-norm table</h2>
+              <i id="exp-btn" class="fas fa-file-export"></i>
+            </div>
+
+            <div class="tnorm-area">
+              <div id="tnorm-table"></div>
+            </div>
+          </div>
+
+          <div class="anova-wrap">
+            <div class="d-flex justify-content-between">
+              <div class="titles">
+                <h2 data-localize="table.anovaTil" class="anova-title Tactive" onclick="left()">ANOVA table</h2>
+                <h2 data-localize="table.explainTil" class="anova-title" onclick="right()">Explain</h2>
+              </div>
+              <i class="fas fa-file-export"></i>
+            </div>
+
+            <div class="result-panel panel">
+              <div class="anova-result">
+                <div class="col-sm-6">
+                  <table class="anova table table-bordered">
+                    <tr>
+                      <th colspan="2">Regression Statistics</th>
+                    </tr>
+                    <tr>
+                      <td>Multiple R</td>
+                      <td id="mulR"></td>
+                    </tr>
+                    <tr>
+                      <td>R square</td>
+                      <td id="Rsquare"></td>
+                    </tr>
+                    <tr>
+                      <td>Adjusted R square</td>
+                      <td id="adjR"></td>
+                    </tr>
+                    <tr>
+                      <td>Standard Error</td>
+                      <td id="stdErr"></td>
+                    </tr>
+                    <tr>
+                      <td>Observations</td>
+                      <td id="obser"></td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="col-sm-10">
+                  <table class="anova table table-bordered">
+                    <tr>
+                      <th colspan="5">ANOVA</th>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td class="symbol">df</td>
+                      <td class="symbol">SS</td>
+                      <td class="symbol">MS</td>
+                      <td class="symbol">F</td>
+                    </tr>
+                    <tr>
+                      <td>Regression</td>
+                      <td id="dfReg"></td>
+                      <td id="ssReg"></td>
+                      <td id="msReg"></td>
+                      <td id="F"></td>
+                    </tr>
+                    <tr>
+                      <td>Residual</td>
+                      <td id="dfRes"></td>
+                      <td id="ssRes"></td>
+                      <td id="msRes"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Total</td>
+                      <td id="dfT"></td>
+                      <td id="ssT"></td>
+                      <td id="msT"></td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </div>
+                <div id="tableAnal"></div>
+              </div>
+            </div>
+            <div class="explain-panel panel">
+              <!--Explain panel-->
+              <div id="step"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--========== END BODY ==========-->
+
+    <!--========== BUTTON AT BOTTOM ==========-->
+    <div class="btn-bottom">
+      <div id="caculator" class="btn-cal" onclick="Calculate()">
+        <i class="fas fa-calculator"></i>
+      </div>
+    </div>
+    <!--========== END BUTTON ==========-->
+
+    <!--========== MODAL PART ==========-->
+    <!-- The Manual Modal -->
+    <div class="modal fade" id="manualModal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <!-- Modal body -->
+         <div class="modal-body">
+          <div class="inputXY">
+            <div class="title">
+              <h2 data-localize="manualModal.title">Data table setting</h2>
+              <i class="fab fa-angrycreative"></i>
+            </div>
+            <div class="form-group">
+              <label data-localize="manualModal.noX" for="noX">Number of X:</label>
+              <p data-localize="manualModal.guide1">Number of independent variables (column)</p>
+              <input class="form-control" id="noX" type="number" placeholder="1" name="quantity" min="1">
+            </div>
+            <div class="form-group">
+               <label data-localize="manualModal.noDataX" for="noDataX">Number data points of X:</label>
+               <p data-localize="manualModal.guide2">Number data points of X and Y variables (row)</p>
+               <input class="form-control" id="noDataX" type="number" placeholder="2" name="quantity" min="2">
+            </div>
+            <button data-localize="manualModal.button" type="button" class="btn" name="submit" onclick="createDataTable()">Submit</button>
+            <p id="error"></p>
+          </div>
+         </div>
+       </div>
+     </div>
+    </div>
+
+    <!-- The Import Modal -->
+    <div class="modal fade" id="importModal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <!-- Modal body -->
+         <div class="modal-body">
+           <div class="importLocalFile">
+             <div class="title">
+               <i class="fab fa-google-wallet"></i>
+               <h2 data-localize="importModal.title">Data table import</h2>
+             </div>
+             <div class="form-group">
+                <label data-localize="importModal.chooseFile" for="localFile">Choose file from computer:</label>
+                <p data-localize="importModal.guide">Automatic read first sheet (ex: Sheet1)</p>
+                <div class="input-group mb-3">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="localFile">
+                    <label data-localize="importModal.placeholder" id="labelImport" class="custom-file-label" for="localFile">No flie choosen...</label>
+                  </div>
+                </div>
+             </div>
+             <button data-localize="importModal.button" id="importClick" type="button" class="btn" name="submit">Submit</button>
+             <p id="errorImport"></p>
+           </div>
+         </div>
+       </div>
+     </div>
+    </div>
+
+    <!--========== END MODAL ==========-->
+
+    <!--GLOBAL MANDATORY JS CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.2.1/math.js" language="JavaScript"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <script src="dist/xlsx.full.min.js" charset="utf-8"></script>
+    <script src="dist/FileSaver.min.js" charset="utf-8"></script>
+    <script src="dist/read-excel-file.min.js" charset="utf-8"></script>
+    <script src="dist/jquery.localize.js" charset="utf-8"></script>
+
+    <!--JAVASCRIPTS-->
+    <script src="js/animate.js" charset="utf-8"></script>
+    <script src="js/createTable.js" charset="utf-8"></script>
+    <script src="js/calculate.js" charset="utf-8"></script>
+    <script src="js/animateDOM.js" charset="utf-8"></script>
+    <script src="js/export.js" charset="utf-8"></script>
+    <script src="js/setLanguage.js" charset="utf-8"></script>
+  </body>
+</html>
