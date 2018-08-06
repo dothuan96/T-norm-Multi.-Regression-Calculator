@@ -12,6 +12,7 @@
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   transition-duration: 300ms;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
@@ -52,7 +53,7 @@
   font-size: 13px;
   font-weight: 600;
   font-family: Hind, sans-serif;
-  color: #fff;
+  color: #fff !important;
   text-transform: uppercase;
   line-height: 55px;
   padding: 20px;
@@ -267,7 +268,7 @@
   }
   /* Navbar Nav */
   .header .nav-item-child {
-    color: #515769;
+    color: #515769 !important;
     line-height: 1.4;
     padding: 12px 12px 12px 15px;
   }
@@ -341,7 +342,7 @@
   transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
 }
 .header.page-on-scroll .nav-item-child {
-  color: #515769;
+  color: #515769 !important;
   transition-duration: 300ms;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
