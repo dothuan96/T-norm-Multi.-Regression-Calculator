@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/table.css">
   </head>
-  <body>
+  <body data-spy="scroll" data-target=".btn" data-offset="50">
     <!--========== HEADER ==========-->
     <header class="header fixed-top">
         <!-- Navbar -->
@@ -56,7 +56,7 @@
                     <a class="nav-item-child nav-item-hover">English</a>
                   </li>
                   <li id="lang-jp" class="nav-item">
-                    <a class="nav-item-child nav-item-hover">日本語</a>
+                    <a class="nav-item-child nav-item-hover">Japanese</a>
                   </li>
                 </ul>
               </div>
@@ -214,7 +214,22 @@
             </div>
             <div class="explain-panel panel">
               <!--Explain panel-->
-              <div id="step"></div>
+              <div class="step">
+                <h5><strong>Step 1: </strong>Define variables in matrix form and given variables</h5>
+                <p>&ndash; Matrix <b>X</b>: independent variables with intercept 1.</p>
+                <p>&ndash; Matrix <b>Y</b>: depandent variables.</p>
+                <p>&ndash; Matrix <b>X'</b>: rotated from matrix X.</p>
+                <div id="numK" style="margin: 0.5em 0;"></div>
+                <div id="arrayX" class="matrix"></div>
+                <div id="arrayY" class="matrix"></div>
+                <div id="arrayRotatedX" class="matrix"></div>
+              </div>
+
+              <div class="step">
+                <h5><strong>Step 2: </strong>Calculate Beta (Intercept & Coefficents)</h5>
+                <p class="guide-exp">&ndash; Multiply and inserse matrix base on equation. The result corresponds to $$ \beta_0, \beta_1, \beta_2,... $$</p>
+                <div id="matrixBeta" class="matrix"></div>
+              </div>
             </div>
           </div>
         </div>

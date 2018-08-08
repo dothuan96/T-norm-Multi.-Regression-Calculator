@@ -2,13 +2,60 @@ var dataInput = document.getElementsByClassName('dataCell');
 var checkData, tnormCondition;
 
 var matrixBeta = [];
-var arrayX = [], arrayY = [], inverseXrX = [];
+var arrayX = [], arrayY = [], arrayRotatedX = [], inverseXrX = [];
 var arrayMeanX = [], arrayMeanY = [], arrayYhat = [];
 
 var SSreg, SSres, SSt;
 var MSreg, MSres, MSt, Fvalue;
 var Rsqrt, Radj, stdErr;
 var stdErrBeta = [], arrayTstat = [], arrayPvalue = [];
+
+//--------------------EXPLAIN PANEL----------------------------//
+function writeMatrix(array, matrixName) {
+  var step1 = matrixName + '\\begin{pmatrix} ';
+  for (var i = 0; i < array.length; i++) {
+    if (i >= 4) {
+      i = array.length - 1;
+      step1 += '\\vdots \\\\';
+    }
+    for (var j = 0; j < array[0].length; j++) {
+      if (j >= 4) {
+        j = array[0].length - 1;
+        step1 += '\\cdots';
+      }
+      step1 += array[i][j] + " ";
+      if (j < array[0].length-1)
+        step1 += '& ';
+      else
+        step1 += '\\\\';
+
+    }
+  }
+  step1 += '\\end{pmatrix} $$';
+  return step1;
+}
+
+function explainStepByStep() {
+  var matrixY = document.getElementById('arrayY');
+  matrixY.innerHTML = writeMatrix(arrayY, '$$ Y = ');
+
+  var matrixX = document.getElementById('arrayX');
+  matrixX.innerHTML = writeMatrix(arrayX, '$$ X = ');
+
+  var matrixInverseX = document.getElementById('arrayRotatedX');
+  matrixInverseX.innerHTML = writeMatrix(arrayRotatedX, '$$ X\' = ');
+
+  document.getElementById('numK').innerHTML = '<span>&#9864;</span> Observations: ' + arrayY.length + ' <sub>(rows)</sub><br>';
+  document.getElementById('numK').innerHTML += '<span>&#9864;</span> No. independent variables: ' + (arrayX[0].length-1) + ' <sub>(columns)</sub>';
+
+  var matrixCoe = document.getElementById('matrixBeta');
+  matrixCoe.innerHTML = writeMatrix(matrixBeta, '$$ \\beta = [X\'X]^{-1}.[X\'Y] = ');
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub, matrixY]);
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub, matrixX]);
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub, matrixInverseX]);
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub, matrixCoe]);
+}
 
 //create Tnorm combination table
 function tnormTable(dataCellInfo, r) {
@@ -208,7 +255,7 @@ function multiplyMatrix(matrixA, matrixB) {
 
 function findBeta(dataCellInfo) {
   //create matrix X' rotated of X
-  var arrayRotatedX = rotateX(dataCellInfo.rows, dataCellInfo.cols + 1, arrayX);
+  arrayRotatedX = rotateX(dataCellInfo.rows, dataCellInfo.cols + 1, arrayX);
   console.log(arrayRotatedX);
   //caculate Beta and alpha
   inverseXrX = math.inv(multiplyMatrix(arrayRotatedX, arrayX));   //multiply X rotated and X then inverse
@@ -792,4 +839,6 @@ function Calculate() {
   } else {
     console.log('error - empty cell');
   }
+
+  explainStepByStep();
 }

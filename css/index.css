@@ -351,8 +351,30 @@ main .contain {
 }
 
 .anova-wrap .explain-panel {
-  background-color: red;
   left: 100%;
+  text-align: left;
+}
+
+.explain-panel .step {
+  margin-bottom: 2em;
+  text-align: left;
+}
+
+.explain-panel h5 {
+  margin-bottom: 0.8em;
+}
+
+.explain-panel p {
+  margin-bottom: 0.25em;
+}
+
+.explain-panel .guide-exp span {
+  display: inline-block;
+}
+
+.explain-panel .matrix {
+  display: inline-block;
+  margin-right: 5em;
 }
 
 /* Media Queries above 992px */
