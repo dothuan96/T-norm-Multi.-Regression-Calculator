@@ -92,15 +92,15 @@
               <div class="adj-select">
                 <div class="select">
                   <select id="tnorm" class="form-control" onchange="chooseTnorm()">
-                    <option value="0"><span data-localize="tnorm.none">None</span></option>
-                    <option value="1"><span data-localize="tnorm.Algebraic">Algebraic product </span><span>&#x2139;</span></option>
-                    <option value="2"><span data-localize="tnorm.Choquet">Algebraic corresponds to Choquet integral </span><span>&#x2139;</span></option>
-                    <option value="3"><span data-localize="tnorm.Drastic">Drastic product</span></option>
-                    <option value="4"><span data-localize="tnorm.Dubois">Dubois and Prade's t-norm</span></option>
-                    <option value="5"><span data-localize="tnorm.Schweizer">Schweizer and Sklar's t-norm</span></option>
-                    <option value="6"><span data-localize="tnorm.Dombi">Dombi's t-norm</span></option>
-                    <option value="7"><span data-localize="tnorm.Miyamoto">Miyamoto's Minkowski type t-norm for R-bags</span></option>
-                    <option value="8"><span data-localize="tnorm.Sugeno">Sugeno type t-norm for R-bags </span><span>&#x2139;</span></option>
+                    <option value="0">None</option>
+                    <option value="1">Algebraic product<span>&#x2139;</span></option>
+                    <option value="2">Algebraic corresponds to Choquet integral<span>&#x2139;</span></option>
+                    <option value="3">Drastic product</option>
+                    <option value="4">Dubois and Prade's t-norm</option>
+                    <option value="5">Schweizer and Sklar's t-norm</option>
+                    <option value="6">Dombi's t-norm</option>
+                    <option value="7">Miyamoto's Minkowski type t-norm for R-bags</option>
+                    <option value="8">Sugeno type t-norm for R-bags<span>&#x2139;</span></option>
                   </select>
                   <div class="icon-select">
                     <i class="fas fa-drafting-compass" aria-hidden="true"></i>
@@ -110,7 +110,7 @@
 
               <div class="input-comb">
                 <div class="col-sm-6 grid">
-                  <label for="num-comb "><span data-localize="tnorm.noComb">No. combination </span> $$(\ge 2)$$</label>
+                  <label for="num-comb"><div data-localize="tnorm.noComb" style="display: inline-block;">No. combination</div> $$(\ge 2)$$</label>
                 </div>
                 <div class="col-sm-5 grid">
                   <input class="form-control" id="num-comb" type="number" value="2" name="quantity" min="2">
