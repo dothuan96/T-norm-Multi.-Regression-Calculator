@@ -50,11 +50,14 @@ function explainStepByStep() {
 
   var matrixCoe = document.getElementById('matrixBeta');
   matrixCoe.innerHTML = writeMatrix(matrixBeta, '$$ \\beta = [X\'X]^{-1}.[X\'Y] = ');
+  yHat.innerHTML = '$$ \\bar{y} = \\frac{\\sum y}{Observations} = \\frac{\\sum y}{' + arrayY.length + '} = ' + arrayMeanY[0][0] + ' $$ <br> ';
+  yHat.innerHTML += writeMatrix(arrayYhat, '$$ \\hat{y} = \\beta_0 + \\beta_1.X_1 + \\beta_2.X_2 + ... + \\beta_n.X_n = ');
 
   MathJax.Hub.Queue(["Typeset", MathJax.Hub, matrixY]);
   MathJax.Hub.Queue(["Typeset", MathJax.Hub, matrixX]);
   MathJax.Hub.Queue(["Typeset", MathJax.Hub, matrixInverseX]);
   MathJax.Hub.Queue(["Typeset", MathJax.Hub, matrixCoe]);
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub, yHat]);
 }
 
 //create Tnorm combination table
@@ -217,7 +220,7 @@ function createMatrixArray (rows, cols, data, step) {
     }
     // create number of empty column for matrix
     for (var j=0; j < cols; j++) {
-      var a = parseInt(data[step*i + n + j].value);
+      var a = parseFloat(data[step*i + n + j].value);
       arrayMatrix[i].push(a);
     }
   }
@@ -331,7 +334,7 @@ function basicParameters(dataCellInfo) {
     sumY += arrayY[i][0];
   }
   meanY.push(sumY/dataCellInfo.rows);
-  arrayMeanY = makeMtrix1Line(meanY.length, meanY);
+  arrayMeanY = makeMtrix1Line(meanY.length, meanY);   console.log(arrayMeanY);
   //find Y hat
   var Yhat = [];
   for (var i = 0; i < arrayX.length; i++) {
