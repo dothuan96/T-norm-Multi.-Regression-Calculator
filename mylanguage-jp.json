@@ -21,7 +21,7 @@
     "Dombi": "Dombi's t-norm",
     "Miyamoto": "Miyamoto's Minkowski type t-norm for R-bags",
     "Sugeno": "Sugeno type t-norm for R-bags",
-    "noComb": "No. combination"
+    "noComb": "組み合わせ数"
   },
   "table": {
     "tnormTil": "T-norm 表",
